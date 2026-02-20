@@ -307,9 +307,7 @@ The file includes approximately:
 
 ### 4.3 Distribution Analysis
 
-We first examine the distribution of key raw variables.
-
-- Variables analyzed:
+We first examine the distribution of key raw variables:
 
 - tone
 
@@ -339,9 +337,7 @@ These visualizations allow us to evaluate:
 
 ### 4.4 Cross-Sectional Comparison
 
-To examine heterogeneity across firms, we generate boxplots grouped by ticker.
-
-- Variables compared:
+To examine heterogeneity across firms, we generate boxplots grouped by ticker:
 
 - Tone by ticker
 
@@ -355,7 +351,7 @@ This step allows us to:
 
 - Detect outlier events and extreme return reactions
 
-- Firm-level variation suggests that communication style and market sensitivity differ across companies.
+Firm-level variation suggests that communication style and market sensitivity differ across companies.
 
 ---
 
@@ -365,11 +361,11 @@ To assess preliminary linear associations, we analyze standardized (Z-scored) va
 
 The following relationships are examined:
 
-tone_z vs CR_0_120_z
+- tone_z vs CR_0_120_z
 
-uncertainty_rate_z vs RV_0_120_z
+- uncertainty_rate_z vs RV_0_120_z
 
-qa_ratio_z vs VOL_ratio_z
+- qa_ratio_z vs VOL_ratio_z
 
 For each pair:
 
