@@ -1,0 +1,21 @@
+Feature Justifications
+============================================================
+
+MARKET FEATURES:
+  CR_0_5/30/120: Cumulative log returns over post-call windows — captures directional price impact of earnings.
+  RV_pre/0_30/0_120: Realized volatility (sqrt sum r²) — measures uncertainty resolution around the call.
+  VOL_ratio: Post/pre volume ratio — captures change in trading activity triggered by the call.
+  max_runup/drawdown: Extreme cumulative moves — captures asymmetry in price reaction.
+  time_to_max_abs_move: Minutes until peak absolute move — captures how quickly information is priced in.
+
+TRANSCRIPT FEATURES:
+  word_count_total: Total transcript length — proxy for information density and call complexity.
+  qa_ratio: Q&A share of total — higher ratio → more analyst engagement.
+  num_questions: Count of questions — direct measure of analyst scrutiny.
+  tone (LM dictionary): (pos - neg) / total — net sentiment using Loughran-McDonald financial lexicon.
+  uncertainty_rate: uncertainty words / total — captures forward-looking hedging language.
+  topic_1..20: TF-IDF + SVD latent topics — captures thematic content without manual labeling.
+
+NORMALIZATION:
+  All numeric features z-scored: z = (x - mean) / std.
+  Ticker one-hot encoded for categorical representation.

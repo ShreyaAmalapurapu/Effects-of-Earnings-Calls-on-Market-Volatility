@@ -1,0 +1,2 @@
+ts_event,rtype,publisher_id,instrument_id,open,high,low,close,volume,symbol
+2025-03-10 20:04:50+00:00,32,9,12071,148.79,148.79,148.79,148.79,1881297,ORCL
