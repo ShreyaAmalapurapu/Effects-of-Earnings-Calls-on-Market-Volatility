@@ -309,31 +309,31 @@ The file includes approximately:
 
 We first examine the distribution of key raw variables.
 
-Variables analyzed:
+- Variables analyzed:
 
-tone
+- tone
 
-uncertainty_rate
+- uncertainty_rate
 
-CR_0_120 (cumulative log return over 0–120 minutes)
+- CR_0_120 (cumulative log return over 0–120 minutes)
 
 Figures generated:
 
-Histogram of tone
+- Histogram of tone
 
-Histogram of uncertainty_rate
+- Histogram of uncertainty_rate
 
-Histogram of CR_0_120
+- Histogram of CR_0_120
 
 These visualizations allow us to evaluate:
 
-Skewness and dispersion
+- Skewness and dispersion
 
-Heavy-tailed behavior
+- Heavy-tailed behavior
 
-Presence of extreme observations
+- Presence of extreme observations
 
-Short-horizon returns exhibit fat tails, consistent with high-frequency earnings announcement reactions.
+- Short-horizon returns exhibit fat tails, consistent with high-frequency earnings announcement reactions.
 
 ---
 
