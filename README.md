@@ -260,3 +260,147 @@ The corresponding data should be presented in the following format.
 | high       | float      | Highest price within the second |
 
 ---
+
+4. Exploratory Data Analysis
+Source: Event-Level Feature Dataset
+4.1 Objective
+
+The objective of this step is to explore the statistical properties and relationships between transcript-based features and short-horizon market reaction variables.
+
+For each earnings call event, we analyze:
+
+Tone (Loughran–McDonald dictionary based)
+
+Uncertainty rate
+
+Cumulative log returns (5m / 30m / 120m)
+
+Realized volatility
+
+Trading volume ratio
+
+Q&A participation ratio
+
+All variables are examined in both raw form and standardized (Z-score) form to ensure comparability.
+
+4.2 Data Source
+
+Event-level features are obtained from:
+
+event_level_features.csv
+
+This dataset contains merged transcript-derived features and high-frequency market reaction metrics constructed in previous steps.
+
+The file includes approximately:
+
+50 earnings call events × 100+ engineered features.
+
+4.3 Distribution Analysis
+
+We first examine the distribution of key raw variables.
+
+Variables analyzed:
+
+tone
+
+uncertainty_rate
+
+CR_0_120 (cumulative log return over 0–120 minutes)
+
+Figures generated:
+
+Histogram of tone
+
+Histogram of uncertainty_rate
+
+Histogram of CR_0_120
+
+These visualizations allow us to evaluate:
+
+Skewness and dispersion
+
+Heavy-tailed behavior
+
+Presence of extreme observations
+
+Short-horizon returns exhibit fat tails, consistent with high-frequency earnings announcement reactions.
+
+4.4 Cross-Sectional Comparison
+
+To examine heterogeneity across firms, we generate boxplots grouped by ticker.
+
+Variables compared:
+
+Tone by ticker
+
+CR_0_120 by ticker
+
+This step allows us to:
+
+Compare median communication tone across firms
+
+Observe dispersion differences
+
+Detect outlier events and extreme return reactions
+
+Firm-level variation suggests that communication style and market sensitivity differ across companies.
+
+4.5 Relationship Analysis
+
+To assess preliminary linear associations, we analyze standardized (Z-scored) variables.
+
+The following relationships are examined:
+
+tone_z vs CR_0_120_z
+
+uncertainty_rate_z vs RV_0_120_z
+
+qa_ratio_z vs VOL_ratio_z
+
+For each pair:
+
+Scatter plot is generated
+
+Linear regression fit line is overlaid
+
+This step provides initial evidence regarding whether textual characteristics may be associated with short-term return, volatility, or trading activity.
+
+4.6 Correlation Structure
+
+To evaluate overall dependency patterns and potential multicollinearity, we compute a Pearson correlation matrix for:
+
+tone_z
+
+uncertainty_rate_z
+
+qa_ratio_z
+
+CR_0_120_z
+
+RV_0_120_z
+
+VOL_ratio_z
+
+A grayscale heatmap is generated to visualize correlation magnitudes.
+
+Correlation values range between −1 and 1.
+
+Moderate correlation levels indicate that explanatory variables are not excessively collinear, supporting subsequent regression modeling.
+
+4.7 Output Storage
+
+All generated figures are automatically saved to:
+
+eda_figs/
+
+The directory contains:
+
+Histogram plots (raw distributions)
+
+Boxplots by ticker
+
+Scatter plots with regression lines
+
+Correlation heatmap
+
+These figures provide publication-quality visual summaries of distributional properties and preliminary statistical relationships.
