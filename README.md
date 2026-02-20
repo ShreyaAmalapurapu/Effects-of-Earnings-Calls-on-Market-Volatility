@@ -295,7 +295,7 @@ All variables are examined in both raw form and standardized (Z-score) form to e
 
 Event-level features are obtained from:
 
-- event_level_features.csv
+- data_final/event_level_features.csv
 
 This dataset contains merged transcript-derived features and high-frequency market reaction metrics constructed in previous steps.
 
