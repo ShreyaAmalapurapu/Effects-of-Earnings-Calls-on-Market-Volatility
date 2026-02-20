@@ -288,6 +288,9 @@ For each earnings call event, we analyze:
 
 All variables are examined in both raw form and standardized (Z-score) form to ensure comparability.
 
+---
+
+
 4.2 Data Source
 
 Event-level features are obtained from:
@@ -299,6 +302,8 @@ This dataset contains merged transcript-derived features and high-frequency mark
 The file includes approximately:
 
 50 earnings call events × 100+ engineered features.
+
+---
 
 4.3 Distribution Analysis
 
@@ -330,6 +335,8 @@ Presence of extreme observations
 
 Short-horizon returns exhibit fat tails, consistent with high-frequency earnings announcement reactions.
 
+---
+
 4.4 Cross-Sectional Comparison
 
 To examine heterogeneity across firms, we generate boxplots grouped by ticker.
@@ -350,6 +357,8 @@ Detect outlier events and extreme return reactions
 
 Firm-level variation suggests that communication style and market sensitivity differ across companies.
 
+---
+
 4.5 Relationship Analysis
 
 To assess preliminary linear associations, we analyze standardized (Z-scored) variables.
@@ -369,6 +378,8 @@ Scatter plot is generated
 Linear regression fit line is overlaid
 
 This step provides initial evidence regarding whether textual characteristics may be associated with short-term return, volatility, or trading activity.
+
+---
 
 4.6 Correlation Structure
 
@@ -391,6 +402,8 @@ A grayscale heatmap is generated to visualize correlation magnitudes.
 Correlation values range between −1 and 1.
 
 Moderate correlation levels indicate that explanatory variables are not excessively collinear, supporting subsequent regression modeling.
+
+---
 
 4.7 Output Storage
 
