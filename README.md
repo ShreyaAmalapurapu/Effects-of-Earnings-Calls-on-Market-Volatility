@@ -261,9 +261,10 @@ The corresponding data should be presented in the following format.
 
 ---
 
-4. Exploratory Data Analysis
-Source: Event-Level Feature Dataset
-4.1 Objective
+#4. Exploratory Data Analysis
+##Source: Event-Level Feature Dataset
+
+###4.1 Objective
 
 The objective of this step is to explore the statistical properties and relationships between transcript-based features and short-horizon market reaction variables.
 
