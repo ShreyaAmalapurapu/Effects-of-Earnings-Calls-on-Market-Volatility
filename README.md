@@ -260,11 +260,11 @@ The corresponding data should be presented in the following format.
 | high       | float      | Highest price within the second |
 
 ---
+# 4. Exploratory Data Analysis
 
-#4. Exploratory Data Analysis
-##Source: Event-Level Feature Dataset
+## Source: Event-Level Feature Dataset
 
-###4.1 Objective
+### 4.1 Objective
 
 The objective of this step is to explore the statistical properties and relationships between transcript-based features and short-horizon market reaction variables.
 
