@@ -341,21 +341,21 @@ These visualizations allow us to evaluate:
 
 To examine heterogeneity across firms, we generate boxplots grouped by ticker.
 
-Variables compared:
+- Variables compared:
 
-Tone by ticker
+- Tone by ticker
 
-CR_0_120 by ticker
+- CR_0_120 by ticker
 
 This step allows us to:
 
-Compare median communication tone across firms
+- Compare median communication tone across firms
 
-Observe dispersion differences
+- Observe dispersion differences
 
-Detect outlier events and extreme return reactions
+- Detect outlier events and extreme return reactions
 
-Firm-level variation suggests that communication style and market sensitivity differ across companies.
+- Firm-level variation suggests that communication style and market sensitivity differ across companies.
 
 ---
 
