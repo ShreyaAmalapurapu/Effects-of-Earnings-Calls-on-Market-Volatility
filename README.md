@@ -62,3 +62,201 @@ python src/04_features.py
 - **Normalization:** Z-score standardization + one-hot ticker encoding
 - **Output:** `event_level_features.csv` (50 events × 107 columns) + `minute_bars.parquet`
 
+---
+
+# 1. Data Collection Overview
+
+This project integrates two primary data sources:
+
+1. Earnings call transcripts (text data)
+2. High-frequency stock market data (1-second OHLCV)
+
+The objective is to synchronize narrative financial communication with real-time market behavior.
+
+---
+
+# 2. Earnings Call Transcripts Collection  
+## Source: Capital IQ
+
+### 2.1 Data Source
+
+Earnings call transcripts were obtained from **S&P Capital IQ**, a professional financial database that provides structured corporate event data.
+
+Source:
+S&P Capital IQ Platform(https://www.capitaliq.com)
+
+---
+
+### 2.2 Company Selection
+
+We selected 10 S&P 500 technology-related companies.  
+For each company, we collected transcripts from the most recent four quarterly earnings calls plus an extra one as a backup.
+
+Total transcripts collected:
+
+10 companies × 5 calls = 50 transcripts
+
+---
+
+### 2.3 Collection Procedure
+
+For each company:
+
+1. Search ticker (e.g., AAPL US Equity) in Capital IQ.
+2. Navigate to:
+   Company → Research → Transcripts
+3. Filter by:
+   - Event Type: Earnings Call
+   - Most recent 5 quarters
+4. Download transcript in Word format.
+5. Extract and record:
+   - Company name
+   - Ticker
+   - Call date
+   - Call start time
+   - Full transcript text
+
+---
+
+### 2.4 Data Structure
+
+Each transcript is stored in structured CSV format with the following fields:
+
+| Variable | Description |
+|----------|------------|
+| ticker | Company ticker |
+| call_date | Earnings call date |
+| call_time | Start time (GMT) |
+| speaker | Speaker name (if available) |
+| section | Prepared Remarks / Q&A |
+| text | Transcript content |
+
+A separate metadata file records call-level information.
+
+---
+
+### 2.5 Time Standardization
+
+Earnings call times are typically reported in Greenwich Mean Time (GMT).
+
+For synchronization with high-frequency market data, all timestamps are converted to:
+
+> Coordinated Universal Time (UTC)
+
+However, GMT time is equivalent to UTC time, so we do not need to perform any additional time conversion.
+
+---
+
+# 3. High-Frequency Market Data Collection  
+## Source: Databento API
+
+### 3.1 Objective
+
+The objective of this step is to collect high-frequency stock market data surrounding corporate earnings calls in order to analyze short-term market reactions.
+
+For each earnings call, we extract:
+
+- Call start time
+- A 3-hour observation window beginning at the call start
+- 1-second OHLCV (Open, High, Low, Close, Volume) data
+
+All timestamps are standardized to UTC to ensure accurate alignment with transcript data.
+
+---
+
+### 3.2 Data Source
+
+Market data is obtained from:
+
+Databento Historical API
+
+Databento provides exchange-level high-frequency data for U.S. equities, including Nasdaq and NYSE.
+
+Source:
+Databento(https://databento.com)
+
+---
+
+### 3.3 Dataset Selection
+
+We use the following datasets depending on exchange listing:
+
+| Exchange | Dataset |
+|----------|----------|
+| Nasdaq | XNAS.ITCH |
+| NYSE | XNYS.PILLAR |
+
+Schema used:
+
+`ohlcv-1s`
+
+This schema provides pre-aggregated 1-second OHLCV bars.
+
+---
+
+### 3.4 Time Standardization
+
+Earnings calls are typically reported in GMT.
+
+Since Databento requires UTC timestamps, all call times are converted to UTC before querying. There has been no change in timing.
+
+---
+
+### 3.5 API Cost
+
+Before performing market collection operations, it is crucial to verify the data pricing. This can be accomplished using the following code for querying.
+
+```python
+import databento as db
+
+API_KEY = "ENTER HERE" # enter your API key
+client = db.Historical(API_KEY)
+
+cost = client.metadata.get_cost( # check the cost (we only have $125 in total)
+    dataset=exchange,
+    schema="ohlcv-1s",
+    symbols=[ticker], # Company name
+    start= start_utc,  # UTC Time
+    end= end_utc
+)
+print("The cost will be",cost) # after we find it's coverable, continue the next step
+```
+
+---
+
+### 3.6 Data Storage
+
+After all preparatory work is completed, utilize the collected data points—start date, start time, ticker symbol, and exchange abbreviation—to retrieve the data.
+
+```python
+exchange = "ENTER HERE" # XNAS.ITCH = Nasdaq; XNYS.PILLAR = NYSE
+ticker = "ENTER HERE" # ticker name
+utc_time_str = "ENTER HERE" # earning call start time in UTC
+
+data = client.timeseries.get_range(
+    dataset=exchange,
+    schema="ohlcv-1s",
+    symbols=[ticker], # Company name
+    start=start_utc,  # UTC Time
+    end=end_utc
+)
+df = data.to_df()
+```
+
+Then use code to save the obtained data locally.
+
+```python
+callname = "ENTER HERE"
+filename2 = f"{ticker}_{callname}.csv" # save the file
+df.to_csv(filename2)
+```
+
+The corresponding data should be presented in the following format.
+
+| Variable   | Type        | Description |
+|------------|------------|-------------|
+| ts_event   | datetime (UTC) | Timestamp of the 1-second interval |
+| open       | float      | Opening price within the second |
+| high       | float      | Highest price within the second |
+
+---
