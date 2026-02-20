@@ -291,7 +291,7 @@ All variables are examined in both raw form and standardized (Z-score) form to e
 ---
 
 
-4.2 Data Source
+### 4.2 Data Source
 
 Event-level features are obtained from:
 
@@ -305,7 +305,7 @@ The file includes approximately:
 
 ---
 
-4.3 Distribution Analysis
+### 4.3 Distribution Analysis
 
 We first examine the distribution of key raw variables.
 
@@ -337,7 +337,7 @@ Short-horizon returns exhibit fat tails, consistent with high-frequency earnings
 
 ---
 
-4.4 Cross-Sectional Comparison
+### 4.4 Cross-Sectional Comparison
 
 To examine heterogeneity across firms, we generate boxplots grouped by ticker.
 
@@ -359,7 +359,7 @@ Firm-level variation suggests that communication style and market sensitivity di
 
 ---
 
-4.5 Relationship Analysis
+### 4.5 Relationship Analysis
 
 To assess preliminary linear associations, we analyze standardized (Z-scored) variables.
 
@@ -381,7 +381,7 @@ This step provides initial evidence regarding whether textual characteristics ma
 
 ---
 
-4.6 Correlation Structure
+### 4.6 Correlation Structure
 
 To evaluate overall dependency patterns and potential multicollinearity, we compute a Pearson correlation matrix for:
 
@@ -405,7 +405,7 @@ Moderate correlation levels indicate that explanatory variables are not excessiv
 
 ---
 
-4.7 Output Storage
+### 4.7 Output Storage
 
 All generated figures are automatically saved to:
 
