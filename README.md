@@ -97,11 +97,3 @@ python src/04_features.py
 - **Normalization:** Z-score standardization + one-hot ticker encoding
 - **Output:** `event_level_features.csv` (50 events × 107 columns) + `minute_bars.parquet`
 
-## Key Findings (EDA)
-1. Post-call realized volatility spikes relative to pre-call levels
-2. Higher analyst engagement (speaker count) correlates with larger price moves (r=0.47)
-3. Average 30-min post-call return is +0.58% (46% positive)
-4. Significant variation in post/pre volume ratios across tickers
-5. Q&A ratio shows weak correlation with post-call volatility
-6. Transcript length has weak negative correlation with absolute returns
-
