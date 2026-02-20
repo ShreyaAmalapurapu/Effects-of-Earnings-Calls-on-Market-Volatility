@@ -270,17 +270,17 @@ The objective of this step is to explore the statistical properties and relation
 
 For each earnings call event, we analyze:
 
-Tone (Loughran–McDonald dictionary based)
+- Tone (Loughran–McDonald dictionary based)
 
-Uncertainty rate
+- Uncertainty rate
 
-Cumulative log returns (5m / 30m / 120m)
+- Cumulative log returns (5m / 30m / 120m)
 
-Realized volatility
+- Realized volatility
 
-Trading volume ratio
+- Trading volume ratio
 
-Q&A participation ratio
+- Q&A participation ratio
 
 All variables are examined in both raw form and standardized (Z-score) form to ensure comparability.
 
