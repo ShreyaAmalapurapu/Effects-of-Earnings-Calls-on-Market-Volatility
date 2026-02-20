@@ -405,16 +405,16 @@ Moderate correlation levels indicate that explanatory variables are not excessiv
 
 All generated figures are automatically saved to:
 
-eda_figs/
+- eda_figs/
 
 The directory contains:
 
-Histogram plots (raw distributions)
+- Histogram plots (raw distributions)
 
-Boxplots by ticker
+- Boxplots by ticker
 
-Scatter plots with regression lines
+- Scatter plots with regression lines
 
-Correlation heatmap
+- Correlation heatmap
 
 These figures provide publication-quality visual summaries of distributional properties and preliminary statistical relationships.
