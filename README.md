@@ -369,9 +369,9 @@ The following relationships are examined:
 
 For each pair:
 
-Scatter plot is generated
+- Scatter plot is generated
 
-Linear regression fit line is overlaid
+- Linear regression fit line is overlaid
 
 This step provides initial evidence regarding whether textual characteristics may be associated with short-term return, volatility, or trading activity.
 
@@ -381,17 +381,17 @@ This step provides initial evidence regarding whether textual characteristics ma
 
 To evaluate overall dependency patterns and potential multicollinearity, we compute a Pearson correlation matrix for:
 
-tone_z
+- tone_z
 
-uncertainty_rate_z
+- uncertainty_rate_z
 
-qa_ratio_z
+- qa_ratio_z
 
-CR_0_120_z
+- CR_0_120_z
 
-RV_0_120_z
+- RV_0_120_z
 
-VOL_ratio_z
+- VOL_ratio_z
 
 A grayscale heatmap is generated to visualize correlation magnitudes.
 
